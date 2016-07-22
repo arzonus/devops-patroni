@@ -12,7 +12,7 @@ RUN apt-get update -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /root/.cache
 
-ADD patronictl.py patroni.py docker/entrypoint.sh /
+ADD patronictl.py patroni.py /
 ADD patroni /patroni/
 RUN ln -s /patronictl.py /usr/local/bin/patronictl
 
