@@ -16,11 +16,8 @@ ADD patronictl.py patroni.py /
 ADD patroni /patroni/
 RUN ln -s /patronictl.py /usr/local/bin/patronictl
 
-RUN mkdir /data/ && \
-    touch /pgpass /patroni.yml && \
-    chown postgres:postgres -R /patroni/ /data/ /pgpass /patroni.yml /var/run/ /var/lib/ /var/log/ 
 
 EXPOSE 2379 5432 8008
 
-ENTRYPOINT ["python", "/patroni.py", "/usr/local/patroni/config.yml"]
+ENTRYPOINT ["python", "/patroni.py"]
 USER postgres
