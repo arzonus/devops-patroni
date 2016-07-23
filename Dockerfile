@@ -2,7 +2,6 @@ FROM postgres:9.5
 MAINTAINER Vsevolod Kaloshin <vsevolod.kaloshin@gmail.com>
 
 RUN apt-get update -y \
-    && apt-get upgrade -y \
     && apt-get install -y curl jq python-psycopg2 python-yaml \
         python-requests python-six python-click python-dateutil python-tzlocal python-urllib3 \
         python-dnspython python-pip python-setuptools python-kazoo python-prettytable python \
