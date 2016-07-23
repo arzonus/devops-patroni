@@ -1,10 +1,9 @@
-FROM ubuntu:16.04
+FROM postgres:9.5
 MAINTAINER Vsevolod Kaloshin <vsevolod.kaloshin@gmail.com>
 
-ENV POSTGRES_VERSION 9.5
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install -y curl jq postgresql-${POSTGRES_VERSION} python-psycopg2 python-yaml \
+    && apt-get install -y curl jq python-psycopg2 python-yaml \
         python-requests python-six python-click python-dateutil python-tzlocal python-urllib3 \
         python-dnspython python-pip python-setuptools python-kazoo python-prettytable python \
     && pip install python-etcd==0.4.3 --upgrade \
