@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Vsevolod Kaloshin <vsevolod.kaloshin@gmail.com>
 
+ENV POSTGRES_VERSION 9.5
 RUN apt-get update -y \
     && apt-get upgrade -y \
     && apt-get install -y curl jq postgresql-${POSTGRES_VERSION} python-psycopg2 python-yaml \
@@ -16,12 +17,11 @@ ADD patronictl.py patroni.py /
 ADD patroni /patroni/
 RUN ln -s /patronictl.py /usr/local/bin/patronictl
 
-### Setting up a simple script that will serve as an entrypoint
 RUN mkdir /data/ && \
     touch /pgpass /patroni.yml && \
     chown postgres:postgres -R /patroni/ /data/ /pgpass /patroni.yml /var/run/ /var/lib/ /var/log/ 
 
 EXPOSE 2379 5432 8008
 
-ENTRYPOINT ["python", "/patroni.py"]
+ENTRYPOINT ["python", "/patroni.py", "/usr/local/patroni/config.yml"]
 USER postgres
