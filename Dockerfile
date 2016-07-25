@@ -44,4 +44,3 @@ RUN ln -s /patronictl.py /usr/local/bin/patronictl
 EXPOSE 5432 8008
 
 ENTRYPOINT ["python", "/patroni.py"]
-USER postgres
