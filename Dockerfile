@@ -42,5 +42,5 @@ ADD patroni /patroni/
 RUN ln -s /patronictl.py /usr/local/bin/patronictl
 
 EXPOSE 5432 8008
-
+USER postgres
 ENTRYPOINT ["python", "/patroni.py"]
