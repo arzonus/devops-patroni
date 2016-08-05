@@ -7,7 +7,9 @@ ADD patroni /patroni/
 RUN apt-get update -y && \
     apt-get install -y \
         python \
-        python-pip && \
+        python-pip \
+        postgresql-contrib \
+        libpq-dev && \
     pip install \
         -r /requirements.txt && \
     apt-get remove -y \
