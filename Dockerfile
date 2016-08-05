@@ -4,6 +4,9 @@ MAINTAINER Vsevolod Kaloshin <vsevolod.kaloshin@gmail.com>
 RUN echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommend && \
     echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/01norecommend
 
+RUN groupadd -r postgres --gid=999 && \
+    useradd -r -g postgres --uid=999 postgres
+
 ENV PGVERSION 9.5
 ENV PATH /usr/lib/postgresql/${PGVERSION}/bin:$PATH
 RUN apt-get update -y && \
