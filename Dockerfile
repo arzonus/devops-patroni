@@ -10,7 +10,7 @@ RUN apt-get update -y && \
         python-pip \
         postgresql-contrib \
         libpq-dev \
-        python-requests \ 
+        python3-requests \ 
         python-dev && \
     pip install \
         -r /requirements.txt && \
