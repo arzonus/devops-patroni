@@ -9,7 +9,8 @@ RUN apt-get update -y && \
         python \
         python-pip \
         postgresql-contrib \
-        libpq-dev && \
+        libpq-dev \ 
+        python-dev && \
     pip install \
         -r /requirements.txt && \
     apt-get remove -y \
