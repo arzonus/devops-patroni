@@ -7,12 +7,12 @@ ADD patroni /patroni/
 RUN apt-get update -y && \
     apt-get install -y \
         python \
-        python3-pip \
+        python-pip \
         postgresql-contrib \
         libpq-dev \
         python3-requests \ 
         python-dev && \
-    pip install \
+    pip install -U \
         -r /requirements.txt && \
     apt-get remove -y \
         python-pip && \
@@ -22,4 +22,5 @@ RUN apt-get update -y && \
 
 RUN ln -s /patronictl.py /usr/local/bin/patronictl
 EXPOSE 5432 8008
+USER postgres
 ENTRYPOINT ["python", "/patroni.py"]

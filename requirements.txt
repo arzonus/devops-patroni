@@ -2,7 +2,7 @@ boto
 psycopg2>=2.6.1
 PyYAML
 requests
-six >= 1.7
+six
 kazoo==2.2.1
 python-etcd==0.4.3
 python-consul==0.6.0
